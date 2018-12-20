@@ -4,6 +4,7 @@ MAINTAINER George Diaz
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
+RUN npm install
 
 RUN npm install -g webpack
 
@@ -11,8 +12,6 @@ ADD package.json $APP_HOME/
 
 ENV NODE_ENV=production \
   PATH=$APP_HOME/node_modules/.bin:$PATH
-
-RUN npm install
 
 ADD . $APP_HOME
 
